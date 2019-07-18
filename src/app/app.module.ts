@@ -15,6 +15,7 @@ import { UserService } from './services/user.service';
 import { MessageService } from './services/message.service';
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
 import { MessagesComponent } from './components/messages/messages.component';
+import { InMemoryDataService } from './services/in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { MessagesComponent } from './components/messages/messages.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [UserService, MessageService],
+  providers: [UserService, MessageService, InMemoryDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
