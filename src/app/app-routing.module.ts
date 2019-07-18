@@ -8,7 +8,6 @@ import { UserDetailComponent } from './components/user-detail/user-detail.compon
 const routes: Routes = [
   { path: '', component: TodoComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'detail/:id', component: UserDetailComponent },
   { path: 'users', component: UserComponent}
 ];
 
