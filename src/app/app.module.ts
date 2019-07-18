@@ -10,6 +10,9 @@ import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { AboutComponent } from './components/pages/about/about.component';
+import { UserComponent } from './components/user/user.component';
+import { UserService } from './services/user.service';
+import { MessageService } from './services/message.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,8 @@ import { AboutComponent } from './components/pages/about/about.component';
     TodoItemComponent,
     HeaderComponent,
     AddTodoComponent,
-    AboutComponent
+    AboutComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,7 @@ import { AboutComponent } from './components/pages/about/about.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [UserService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
