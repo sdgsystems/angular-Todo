@@ -19,7 +19,8 @@ export class UserComponent implements OnInit {
   }
 
   getUsers(): void {
-    this.users = this.userService.getUsers();
+    // used before async rxjs: this.users = this.userService.getUsers();
+    this.userService.getUsers().subscribe(users => this.users = users);
   }
 
   onSelect(user: User) {

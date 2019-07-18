@@ -13,6 +13,8 @@ import { AboutComponent } from './components/pages/about/about.component';
 import { UserComponent } from './components/user/user.component';
 import { UserService } from './services/user.service';
 import { MessageService } from './services/message.service';
+import { UserDetailComponent } from './components/user-detail/user-detail.component';
+import { MessagesComponent } from './components/messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { MessageService } from './services/message.service';
     HeaderComponent,
     AddTodoComponent,
     AboutComponent,
-    UserComponent
+    UserComponent,
+    UserDetailComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,

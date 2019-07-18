@@ -6,18 +6,4 @@
     <span class="badge">{{user.id}}</span> {{user.name}} - {{user.emailAddress}}
   </li>
 </ul>
-
-<div *ngIf="selectedUser">
-  <h2>{{selectedUser.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedUser.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedUser.name" placeholder="name"/>
-    </label>
-  </div>
-  <div>
-    <label>email:
-      <input [(ngModel)]="selectedUser.emailAddress" placeholder="email address"/>
-    </label>
-  </div>
-</div>
+<app-user-detail [user]="selectedUser"></app-user-detail>
