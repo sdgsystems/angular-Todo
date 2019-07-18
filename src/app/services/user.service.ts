@@ -21,4 +21,10 @@ export class UserService {
     return of(USERS);
   }
 
+  getUser(id: number): Observable<User> {
+    // TODO: send the message _after_ fetching the hero
+  this.messageService.add(`UserService: fetched user id=${id}`);
+  return of(USERS.find(user => user.id === id));
+  }
+
 }
