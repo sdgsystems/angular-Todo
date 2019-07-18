@@ -15,6 +15,7 @@ import { UserService } from './services/user.service';
 import { MessageService } from './services/message.service';
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
 import { MessagesComponent } from './components/messages/messages.component';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
 
 @NgModule({
@@ -33,8 +34,13 @@ import { InMemoryDataService } from './services/in-memory-data.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
-  ],
+    FormsModule,
+
+  // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+  // and returns simulated server responses.
+  // Remove it when a real server is ready to receive requests.
+  HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }
+) ],
   providers: [UserService, MessageService, InMemoryDataService],
   bootstrap: [AppComponent]
 })
