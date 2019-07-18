@@ -5,9 +5,7 @@ import { User } from '../models/User';
 @Injectable({
   providedIn: 'root',
 })
-
 export class InMemoryDataService implements InMemoryDbService {
-
   createDb() {
     const users = [
       { id: 11, name: 'Dr Nice', emailAddress: 'user1@test.com' },
