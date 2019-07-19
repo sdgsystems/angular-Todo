@@ -14,9 +14,13 @@ export class TodoComponent implements OnInit {
 
   ngOnInit() {
     // this.todos = this.todoService.getTodos(); // can't use this as we're using Observable
+
+    this.getTodos();
+  }
+
+  getTodos() {
     this.todoService.getTodos().subscribe((todos) => {
-      this.todos = todos;
-    });
+       this.todos = todos;});
   }
 
   deleteTodo(todo: Todo) {

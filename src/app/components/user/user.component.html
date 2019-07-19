@@ -16,6 +16,8 @@
     <a routerLink="/user/detail/{{user.id}}">
     <span class="badge">{{user.id}}</span> {{user.name}} - {{user.emailAddress}}
     </a>
+    <button class="delete" title="delete user"
+      (click)="delete(user)">x</button>
   </li>
 </ul>
 

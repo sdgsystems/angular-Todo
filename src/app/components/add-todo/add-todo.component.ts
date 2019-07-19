@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-add-todo',
@@ -6,6 +6,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./add-todo.component.css']
 })
 export class AddTodoComponent implements OnInit {
+  @ViewChild('myForm') formValues;
   @Output() addTodo: EventEmitter<any> = new EventEmitter();
   title: string;
   constructor() { }
@@ -20,6 +21,16 @@ export class AddTodoComponent implements OnInit {
     };
 
     this.addTodo.emit(todo);
+  }
+
+  submitForm(form) {
+    const todo = {
+      title: this.title,
+      completed: false
+    };
+
+    this.addTodo.emit(todo);
+    this.formValues.resetForm();
   }
 
 }

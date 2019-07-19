@@ -33,6 +33,11 @@ export class UserComponent implements OnInit {
       });
   }
 
+  delete(user: User): void {
+    this.users = this.users.filter(u => u !== user);
+    this.userService.deleteUser(user).subscribe();
+  }
+
   // onSelect(user: User) {
   //   this.selectedUser = user;
   // }
