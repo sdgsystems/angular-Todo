@@ -23,6 +23,16 @@ export class UserComponent implements OnInit {
     this.userService.getUsers().subscribe(users => this.users = users);
   }
 
+  add(name: string, emailAddress: string): void {
+    name = name.trim();
+    emailAddress = emailAddress.trim();
+    if (!name) { return; }
+    this.userService.addUser({ name, emailAddress } as User)
+      .subscribe(user => {
+        this.users.push(user);
+      });
+  }
+
   // onSelect(user: User) {
   //   this.selectedUser = user;
   // }

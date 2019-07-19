@@ -1,4 +1,16 @@
 <h2>My Users</h2>
+<div>
+  <label>User name:
+    <input #userName />
+  </label><br>
+  <label>User email:
+    <input #userEmail />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(userName.value, userEmail.value); userName.value=''; userEmail.value=''">
+    add
+  </button>
+</div>
 <ul class="users">
   <li *ngFor="let user of users">
     <a routerLink="/user/detail/{{user.id}}">
