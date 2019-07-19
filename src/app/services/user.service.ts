@@ -31,7 +31,7 @@ export class UserService {
 
   getUsers(): Observable<User[]> {
     // TODO: send the message _after_ fetching the heroes
-    this.messageService.add('UserService: fetched users');
+    // this.messageService.add('UserService: fetched users');
     //return of(USERS);
     return this.http.get<User[]>(this.usersUrl)
       .pipe(

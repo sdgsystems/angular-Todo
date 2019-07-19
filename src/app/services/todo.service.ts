@@ -29,7 +29,7 @@ export class TodoService {
   getTodos(): Observable<Todo[]> {
     // return this.http.get<Todo[]>(`${this.todosUrl}${this.todosLimit}`);
     // TODO: send the message _after_ fetching the heroes
-    this.messageService.add('TodoService: fetched todos');
+    // this.messageService.add('TodoService: fetched todos');
     return this.http.get<Todo[]>(this.todosUrl)
     .pipe(
         tap(_ => this.log('fetched todos')),
