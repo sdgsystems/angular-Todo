@@ -2,6 +2,7 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Injectable } from '@angular/core';
 import { User } from '../models/User';
 import { Todo } from '../models/Todo';
+import { Request } from '../models/Request';
 
 @Injectable({
   providedIn: 'root',
@@ -28,7 +29,15 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 14, title: 'Test Item 4', completed: false },
       { id: 15, title: 'Test Item 5', completed: false }
     ];
-    return {users, todos};
+
+    let requests = [
+      { id: 11, title: 'Request 1', reqType: 'Health', reqStatus: 'Active', userId: 11, postDate: '2019-07-19', modifyDate: '' },
+      { id: 12, title: 'Request 2', reqType: 'Health', reqStatus: 'Active', userId: 12, postDate: '2019-07-19', modifyDate: '' },
+      { id: 13, title: 'Request 3', reqType: 'Health', reqStatus: 'Active', userId: 11, postDate: '2019-07-19', modifyDate: '' },
+      { id: 14, title: 'Request 4', reqType: 'Health', reqStatus: 'Active', userId: 12, postDate: '2019-07-19', modifyDate: '' },
+      { id: 15, title: 'Request 5', reqType: 'Health', reqStatus: 'Active', userId: 11, postDate: '2019-07-19', modifyDate: '' }
+    ];
+    return {users, todos, requests};
   }
 
   // Overrides the genId method to ensure that a hero always has an id.
@@ -40,7 +49,7 @@ export class InMemoryDataService implements InMemoryDbService {
   //   return users.length > 0 ? Math.max(...users.map(user => user.id)) + 1 : 11;
   // }
   // found the following here: https://stackoverflow.com/questions/40146811/multiple-collections-in-angular-in-memory-web-api
-  genId<T extends User | Todo>(myTable: T[]): number {
+  genId<T extends User | Todo | Request >(myTable: T[]): number {
     return myTable.length > 0 ? Math.max(...myTable.map(t => t.id)) + 1 : 11;
   }
 

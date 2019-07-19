@@ -17,6 +17,7 @@ import { MessageService } from './services/message.service';
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { InMemoryDataService } from './services/in-memory-data.service';
+import { RequestComponent } from './components/request/request.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { InMemoryDataService } from './services/in-memory-data.service';
     AboutComponent,
     UserComponent,
     UserDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    RequestComponent
   ],
   imports: [
     BrowserModule,
