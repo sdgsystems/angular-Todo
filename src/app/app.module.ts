@@ -18,6 +18,8 @@ import { UserDetailComponent } from './components/user-detail/user-detail.compon
 import { MessagesComponent } from './components/messages/messages.component';
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { RequestComponent } from './components/request/request.component';
+import { RequestService } from './services/request.service';
+import { RequestDetailComponent } from './components/request/request-detail/request-detail.component';
 
 
 @NgModule({
@@ -31,7 +33,8 @@ import { RequestComponent } from './components/request/request.component';
     UserComponent,
     UserDetailComponent,
     MessagesComponent,
-    RequestComponent
+    RequestComponent,
+    RequestDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,7 @@ import { RequestComponent } from './components/request/request.component';
   // and returns simulated server responses.
   // Remove it when a real server is ready to receive requests.
   HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }) ],
-  providers: [UserService, MessageService, InMemoryDataService],
+  providers: [UserService, MessageService, InMemoryDataService, RequestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
