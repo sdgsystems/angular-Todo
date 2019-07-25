@@ -2,8 +2,8 @@
   <form [formGroup]="form" (ngSubmit)="submit()">
     <h2>Request Type: {{request.reqType | uppercase}}</h2>
     <label for="reqTypes">Request Type</label><br>
-    <select formControlName="reqTypes" id="reqTypes">
-      <option *ngFor="let reqType of reqTypes; let i = index" [value]="reqTypes[i].id">
+    <select formControlName="reqTypes" id="reqTypes" (change)="selectChangeHandler($event)">
+      <option *ngFor="let reqType of reqTypes; let i = index" [value]="reqTypes[i].name">
         {{reqTypes[i].name}}
       </option>
     </select>

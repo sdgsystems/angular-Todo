@@ -15,8 +15,8 @@ import { Request } from '../../../models/Request';
 export class RequestDetailComponent implements OnInit {
    @Input() request: Request;
    form: FormGroup;
-   requestTypes: string[] = ['Type 1', 'Type 2', 'Type 3'];
    reqTypes = [];
+   selectedValue: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -49,6 +49,13 @@ export class RequestDetailComponent implements OnInit {
     this.requestService.getRequest(id).subscribe(request => this.request = request);
   }
 
+  //event handler for the select element's change event
+  selectChangeHandler (event: any) {
+    //update the ui
+    this.selectedValue = event.target.value;
+    console.log(this.selectedValue);
+  }
+
   getReqTypes() {
     return [
       { id: '1', name: 'active' },
@@ -66,4 +73,9 @@ export class RequestDetailComponent implements OnInit {
     console.log(this.form.controls.reqTypes.value);
   }
 
+  // found here https://coryrylan.com/blog/creating-a-dynamic-select-with-angular-forms
+  // also https://blog.kevinchisholm.com/angular/get-value-selected-dropdown-menu-item/
+  // also https://medium.com/p/85c99958cca5/responses/show which appears interesting
+
+  // maybe just go with this: https://valor-software.com/ng2-select/
 }
