@@ -31,11 +31,11 @@ export class InMemoryDataService implements InMemoryDbService {
     ];
 
     let requests = [
-      { id: 11, request: 'Request 1', reqType: 'Health', reqStatus: 'Active', userId: 11, postDate: '2019-07-19', modifyDate: '' },
-      { id: 12, request: 'Request 2', reqType: 'Health', reqStatus: 'Active', userId: 12, postDate: '2019-07-19', modifyDate: '' },
-      { id: 13, request: 'Request 3', reqType: 'Health', reqStatus: 'Active', userId: 11, postDate: '2019-07-19', modifyDate: '' },
-      { id: 14, request: 'Request 4', reqType: 'Health', reqStatus: 'Active', userId: 12, postDate: '2019-07-19', modifyDate: '' },
-      { id: 15, request: 'Request 5', reqType: 'Health', reqStatus: 'Active', userId: 11, postDate: '2019-07-19', modifyDate: '' }
+      { id: 11, request: 'Request 1', reqType: '11', reqStatus: 'Active', userId: 11, postDate: '2019-07-19', modifyDate: '' },
+      { id: 12, request: 'Request 2', reqType: '12', reqStatus: 'Active', userId: 12, postDate: '2019-07-19', modifyDate: '' },
+      { id: 13, request: 'Request 3', reqType: '13', reqStatus: 'Active', userId: 11, postDate: '2019-07-19', modifyDate: '' },
+      { id: 14, request: 'Request 4', reqType: '14', reqStatus: 'Active', userId: 12, postDate: '2019-07-19', modifyDate: '' },
+      { id: 15, request: 'Request 5', reqType: '15', reqStatus: 'Active', userId: 11, postDate: '2019-07-19', modifyDate: '' }
     ];
     return {users, todos, requests};
   }

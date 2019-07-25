@@ -35,6 +35,15 @@ export class RequestService {
       );
   }
 
+  /** GET request by id. Will 404 if id not found */
+  getRequest(id: number): Observable<Request> {
+    const url = `${this.requestsUrl}/${id}`;
+    return this.http.get<Request>(url).pipe(
+      tap(_ => this.log(`fetched request id=${id}`)),
+      catchError(this.handleError<Request>(`getRequest id=${id}`))
+    );
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.

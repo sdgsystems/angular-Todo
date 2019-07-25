@@ -1,6 +1,36 @@
-<div>
-  <p>
-  request-detail works!
-  </p>
-  <button (click)="goBack()">go back</button>&nbsp;
+<div *ngIf="request">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <h2>Request Type: {{request.reqType | uppercase}}</h2>
+    <label for="reqTypes">Request Type</label><br>
+    <select formControlName="reqTypes" id="reqTypes">
+      <option *ngFor="let reqType of reqTypes; let i = index" [value]="reqTypes[i].id">
+        {{reqTypes[i].name}}
+      </option>
+    </select>
+
+    <br><br>
+    <button>submit</button>
+  </form>
+
+
+  
+  <!-- <div><span>Id: </span>{{request.id}}</div>
+  <div>
+    <label>Request:
+      <input [(ngModel)]="request.request" placeholder="request"/>
+    </label>
+  </div>
+  <div>
+    <ng-select 
+        [items]="requestTypes"
+        placeholder="Select Request Type">
+    </ng-select>
+  </div>
+   <div>
+    <label>email:
+      <input [(ngModel)]="user.emailAddress" placeholder="email address"/>
+    </label>
+  </div> -->
 </div>
+<button (click)="goBack()">go back</button>&nbsp;
+

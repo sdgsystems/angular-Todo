@@ -15,7 +15,7 @@
   border-radius: 4px;
 }
 
-.urequestssers li:hover {
+.requests li:hover {
   color: #607D8B;
   background-color: #DDD;
   left: .1em;
@@ -26,7 +26,7 @@
   text-decoration: none;
   position: relative;
   display: block;
-  width: 250px;
+  width: 95%;
 }
 
 .requests a:hover {
