@@ -14,7 +14,9 @@ import { Request } from '../../../models/Request';
 })
 export class RequestDetailComponent implements OnInit {
    @Input() request: Request;
-   form: FormGroup;
+   //form: FormGroup;
+   countryForm: FormGroup;
+   countries = ['USA', 'Canada', 'Uk']
    reqTypes = [];
    selectedValue: string = '';
 
@@ -24,7 +26,7 @@ export class RequestDetailComponent implements OnInit {
     private location: Location,
     private formBuilder: FormBuilder
     ) { 
-        this.form = this.formBuilder.group({
+        /*this.form = this.formBuilder.group({
           reqTypes: ['']
         });
 
@@ -32,16 +34,20 @@ export class RequestDetailComponent implements OnInit {
         of(this.getReqTypes()).subscribe(reqTypes => {
           this.reqTypes = reqTypes;
           this.form.controls.reqTypes.patchValue(this.reqTypes[0].id);
-        });
+        });*/
 
-        // synchronous orders
+        // synchronous loading
         // this.orders = this.getOrders();
         // this.form.controls.orders.patchValue(this.orders[0].id);
 
      }
 
   ngOnInit() {
-    this.getRequest();
+    // this.getRequest();
+
+    this.countryForm = this.formBuilder.group({
+      countryControl: ['Uk']
+    });
   }
 
   getRequest(): void {
@@ -78,4 +84,7 @@ export class RequestDetailComponent implements OnInit {
   // also https://medium.com/p/85c99958cca5/responses/show which appears interesting
 
   // maybe just go with this: https://valor-software.com/ng2-select/
+
+  // https://medium.com/@kastepanyan24/how-to-set-selected-option-dynamically-in-angular-6-85c99958cca5
+
 }
