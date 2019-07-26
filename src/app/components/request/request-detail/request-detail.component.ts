@@ -28,7 +28,7 @@ export class RequestDetailComponent implements OnInit {
           reqTypes: ['']
         });
 
-        // async orders
+        // async loading
         of(this.getReqTypes()).subscribe(reqTypes => {
           this.reqTypes = reqTypes;
           this.form.controls.reqTypes.patchValue(this.reqTypes[0].id);
