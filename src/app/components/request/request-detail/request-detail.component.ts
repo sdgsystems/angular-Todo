@@ -43,7 +43,7 @@ export class RequestDetailComponent implements OnInit {
      }
 
   ngOnInit() {
-    // this.getRequest();
+    this.getRequest();
 
     this.countryForm = this.formBuilder.group({
       countryControl: ['Uk']
