@@ -1,19 +1,17 @@
 <div *ngIf="request">
-  <!-- <form [formGroup]="form" (ngSubmit)="submit()">
+  <form [formGroup]="form" (ngSubmit)="submit()">
     <h2>Request Type: {{request.reqType | uppercase}}</h2>
     <label for="reqTypes">Request Type</label><br>
     <select formControlName="reqTypes" id="reqTypes" (change)="selectChangeHandler($event)">
-      <option *ngFor="let reqType of reqTypes; let i = index" [value]="reqTypes[i].name">
-        {{reqTypes[i].name}}
+      <option *ngFor="let reqType of reqTypes; let i = index" [value]="reqTypes[i].reqType">
+        {{reqTypes[i].reqType}}
       </option>
     </select>
 
     <br><br>
     <button>submit</button>
-  </form> -->
+  </form>
 
-  
-  <h3>loaded...</h3>
 
   
   <!-- <div><span>Id: </span>{{request.id}}</div>
@@ -34,10 +32,10 @@
     </label>
   </div> -->
 </div>
-<form [formGroup]="countryForm">
+<!--<form [formGroup]="countryForm">
     <select formControlName="countryControl">
       <option [value]="country" *ngFor="let country of countries">             {{country}}</option>
     </select>
-  </form>
+  </form> -->
 <button (click)="goBack()">go back</button>&nbsp;
 

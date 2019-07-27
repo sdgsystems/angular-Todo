@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../models/User';
 import { Todo } from '../models/Todo';
 import { Request } from '../models/Request';
+import { ReqType } from '../models/ReqType';
 
 @Injectable({
   providedIn: 'root',
@@ -37,7 +38,14 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 14, request: 'Request 4', reqType: 'First Love', reqStatus: 'Active', userId: 12, postDate: '2019-07-19', modifyDate: '' },
       { id: 15, request: 'Request 5', reqType: 'Salvation', reqStatus: 'Active', userId: 11, postDate: '2019-07-19', modifyDate: '' }
     ];
-    return {users, todos, requests};
+
+    let reqTypes = [
+      { id: 11, reqType: 'Healing' },
+      { id: 12, reqType: 'Job' },
+      { id: 13, reqType: 'Salvation' },
+      { id: 14, reqType: 'Wisdom' },
+    ];
+    return {users, todos, requests, reqTypes};
   }
 
   // Overrides the genId method to ensure that a hero always has an id.
@@ -49,7 +57,7 @@ export class InMemoryDataService implements InMemoryDbService {
   //   return users.length > 0 ? Math.max(...users.map(user => user.id)) + 1 : 11;
   // }
   // found the following here: https://stackoverflow.com/questions/40146811/multiple-collections-in-angular-in-memory-web-api
-  genId<T extends User | Todo | Request >(myTable: T[]): number {
+  genId<T extends User | Todo | Request | ReqType >(myTable: T[]): number {
     return myTable.length > 0 ? Math.max(...myTable.map(t => t.id)) + 1 : 11;
   }
 

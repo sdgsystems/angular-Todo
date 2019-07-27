@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Request } from '../models/Request';
+import { ReqType } from '../models/ReqType';
 import { MessageService } from './message.service';
 
 const httpOptions = {
@@ -42,6 +43,17 @@ export class RequestService {
       tap(_ => this.log(`fetched request id=${id}`)),
       catchError(this.handleError<Request>(`getRequest id=${id}`))
     );
+  }
+
+  getReqTypes(): Observable<ReqType[]> {
+    // TODO: send the message _after_ fetching the heroes
+    // this.messageService.add('UserService: fetched users');
+    //return of(USERS);
+    return this.http.get<ReqType[]>(this.requestsUrl)
+      .pipe(
+        tap(_ => this.log('fetched reqTypes')),
+        catchError(this.handleError<ReqType[]>('getReqTypes', []))
+      );
   }
 
   /**

@@ -6,6 +6,7 @@ import { of } from 'rxjs';
 
 import { RequestService } from '../../../services/request.service';
 import { Request } from '../../../models/Request';
+import { ReqType } from '../../../models/ReqType';
 
 @Component({
   selector: 'app-request-detail',
@@ -14,7 +15,7 @@ import { Request } from '../../../models/Request';
 })
 export class RequestDetailComponent implements OnInit {
    @Input() request: Request;
-   //form: FormGroup;
+   form: FormGroup;
    countryForm: FormGroup;
    countries = ['USA', 'Canada', 'Uk']
    reqTypes = [];
@@ -43,11 +44,28 @@ export class RequestDetailComponent implements OnInit {
      }
 
   ngOnInit() {
+
+    this.form = this.formBuilder.group({
+          reqTypes: ['']
+    });
+
+    // synchronous loading
+    //this.reqTypes = this.getReqTypes();
+    //this.getReqTypes();
+    //this.form.controls.reqTypes.patchValue(this.reqTypes[0].id);
+
+    // async loading
+    //of(this.getReqTypes()).subscribe(reqTypes => {
+    //   this.reqTypes = reqTypes;
+    //  this.reqTypes = this.getReqTypes();
+    //  this.form.controls.reqTypes.patchValue(this.reqTypes[0].id);
+    //});
+
     this.getRequest();
 
-    this.countryForm = this.formBuilder.group({
+    /*this.countryForm = this.formBuilder.group({
       countryControl: ['Uk']
-    });
+    });*/
   }
 
   getRequest(): void {
@@ -63,21 +81,22 @@ export class RequestDetailComponent implements OnInit {
   }
 
   getReqTypes() {
-    return [
+    /*return [
       { id: '1', name: 'active' },
       { id: '2', name: 'answered' },
       { id: '3', name: 'for testing 1' },
       { id: '4', name: 'for testing 2' }
-    ];
+    ];*/
+    this.requestService.getReqTypes().subscribe(reqTypes => this.reqTypes = reqTypes);
   }
 
   goBack(): void {
     this.location.back();
   }
 
-  submit() {
+  /*submit() {
     console.log(this.form.controls.reqTypes.value);
-  }
+  }*/
 
   // found here https://coryrylan.com/blog/creating-a-dynamic-select-with-angular-forms
   // also https://blog.kevinchisholm.com/angular/get-value-selected-dropdown-menu-item/
